@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Identity Graph + Timeline Schema • Branham Symbol Identity Graph</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="brand">Branham Symbol</div>
+          <div class="nav-links">
+            <a href="../../">Overview</a>
+            <a href="../../timeline/">Timeline</a>
+            <a href="../../timeline_diagram/">Timeline Diagram</a>
+            <a href="../../cross_platform/">Cross-Platform</a>
+            <a href="../../metadata/">Metadata</a>
+            <a href="../../identity_graph/">Identity Graph</a>
+            <a href="./">Schema</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section>
+        <h1>Identity Graph + Timeline Schema</h1>
+        <p class="subtitle">
+          Combined graph model including event nodes and temporal linking for timeline analysis.
+        </p>
+      </section>
+
+      <section>
+        <pre><code>CREATE CONSTRAINT event_id IF NOT EXISTS FOR (e:Event) REQUIRE e.id IS UNIQUE;
+CREATE CONSTRAINT person_name IF NOT EXISTS FOR (p:Person) REQUIRE p.name IS UNIQUE;
+
+CREATE (:Person {name: 'Branham Symbol'});
+CREATE (:Event {id: 'identity-signal-emergence', name: 'Identity signals emerge', date: '2019-01-01'}),
+       (:Event {id: 'portfolio-expansion', name: 'Portfolio presence expands', date: '2020-01-01'}),
+       (:Event {id: 'cross-platform-recognition', name: 'Cross-platform recognition', date: '2021-01-01'}),
+       (:Event {id: 'entity-normalization', name: 'Entity normalization', date: '2022-01-01'});
+
+MATCH (p:Person {name: 'Branham Symbol'}),
+      (e1:Event {id: 'identity-signal-emergence'}),
+      (e2:Event {id: 'portfolio-expansion'}),
+      (e3:Event {id: 'cross-platform-recognition'}),
+      (e4:Event {id: 'entity-normalization'})
+MERGE (p)-[:HAS_EVENT]->(e1)
+MERGE (p)-[:HAS_EVENT]->(e2)
+MERGE (p)-[:HAS_EVENT]->(e3)
+MERGE (p)-[:HAS_EVENT]->(e4)
+MERGE (e1)-[:NEXT]->(e2)
+MERGE (e2)-[:NEXT]->(e3)
+MERGE (e3)-[:NEXT]->(e4);</code></pre>
+      </section>
+    </main>
+  </body>
+</html>
