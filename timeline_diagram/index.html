@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeline Diagram • Branham Symbol Identity Graph</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="brand">Branham Symbol</div>
+          <div class="nav-links">
+            <a href="../">Overview</a>
+            <a href="../timeline/">Timeline</a>
+            <a href="./">Timeline Diagram</a>
+            <a href="../cross_platform/">Cross-Platform</a>
+            <a href="../metadata/">Metadata</a>
+            <a href="../identity_graph/">Identity Graph</a>
+            <a href="../schema/identity_graph.cypher/">Schema</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section>
+        <h1>Timeline Diagram</h1>
+        <p class="subtitle">Mermaid Gantt chart showing a representative sequence of identity-related stages.</p>
+      </section>
+
+      <section>
+        <div class="mermaid">
+          gantt
+            title Branham Symbol Identity Timeline
+            dateFormat  YYYY-MM-DD
+            axisFormat %Y
+
+            section Discovery
+            Identity signals emerge            :a1, 2019-01-01, 180d
+            Portfolio presence grows          :a2, 2020-01-01, 270d
+
+            section Expansion
+            Platform cross-linking            :b1, 2021-01-01, 365d
+            Evidence collection               :b2, 2022-01-01, 300d
+
+            section Graphing
+            Entity normalization              :c1, 2023-01-01, 240d
+            Timeline validation               :c2, 2024-01-01, 250d
+
+            section Review
+            Confidence review                 :d1, 2025-01-01, 180d
+            Reporting and schema refinement   :d2, 2026-01-01, 180d
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
