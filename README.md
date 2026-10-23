@@ -7,6 +7,7 @@ This repository hosts a lightweight static site for the Branham Symbol identity 
 - Home: `/`
 - Timeline: `/timeline/`
 - Timeline Diagram: `/timeline_diagram/`
+- Extraction Report: `/extraction_report/`
 - Cross-Platform Correlations: `/cross_platform/`
 - Metadata: `/metadata/`
 - Identity Graph: `/identity_graph/`
